@@ -1,3 +1,4 @@
+import cloudinary from "../lib/cloudinary.js";
 import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
@@ -18,7 +19,7 @@ export const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = new User({
+    const newUser =await new User({
       fullName,
       email,
       password: hashedPassword,
@@ -79,3 +80,30 @@ export const logout = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const updateProfile= async(req , res)=>{
+  try {
+    const {profilePic}= req.body;
+    const userId = req.user._id;
+
+    if(!profilePic){
+      return res.status(400).json({message:"profile pic required"})
+    }
+
+    const uploadResponse = await cloudinary.uploader.upload(profilePic)
+    const updatedUser = await User.findByIdAndUpdate(userId , {profilePic: uploadResponse.secure_url}, {new :true});
+
+    res.status(200).json(updatedUser);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+export const checkAuth=(req, res)=>{
+  try {
+    res.status(200).json(req.user);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
