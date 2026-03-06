@@ -8,6 +8,7 @@ import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import { useAuth } from "./store/useAuthStore";
 import { Loader } from "lucide-react"
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
@@ -19,11 +20,12 @@ function App() {
 
   console.log(authUser);
 
-  if(!isCheckingAuth) return (
-    <div className="flex items-center justify-center h-screen">
-      <Loader className="size-10 animate-spin" />
-    </div>
-  )
+  if (isCheckingAuth && !authUser)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin" />
+      </div>
+    );
   
 
   return (
@@ -36,6 +38,7 @@ function App() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login"/>} />
       </Routes>
+      <Toaster/>
     </div>
   );
 }
