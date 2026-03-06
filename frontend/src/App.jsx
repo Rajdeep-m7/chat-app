@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -9,10 +9,12 @@ import ProfilePage from "./pages/ProfilePage";
 import { useAuth } from "./store/useAuthStore";
 import { Loader } from "lucide-react"
 import { Toaster } from "react-hot-toast";
+import { useTheme } from "./store/useThemeStore";
 
 function App() {
 
   const {authUser , checkAuth, isCheckingAuth}= useAuth();
+  const {theme}= useTheme()
 
   useEffect(()=>{
     checkAuth();
@@ -27,9 +29,12 @@ function App() {
       </div>
     );
   
+    useEffect(()=>{
+      document.documentElement.setAttribute("data-theme", theme);
+    },[theme])
 
   return (
-    <div>
+    <div >
       <Navbar />
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login"/>} />
