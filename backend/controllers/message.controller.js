@@ -53,6 +53,8 @@ export const sendMessage= async(req , res)=>{
         await newMessage.save();
 
         //todo : realtime using socket.io
+        
+        res.status(201).json(newMessage);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
