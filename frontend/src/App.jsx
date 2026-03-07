@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -20,6 +20,10 @@ function App() {
     checkAuth();
   },[checkAuth])
 
+  useEffect(()=>{
+      document.documentElement.setAttribute("data-theme", theme);
+    },[theme])
+
   console.log(authUser);
 
   if (isCheckingAuth && !authUser)
@@ -29,9 +33,7 @@ function App() {
       </div>
     );
   
-    useEffect(()=>{
-      document.documentElement.setAttribute("data-theme", theme);
-    },[theme])
+    
 
   return (
     <div >

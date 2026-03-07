@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRouter);
-app.use("/api/message", messageRouter);
+app.use("/api/messages", messageRouter);
 
 app.listen(PORT, () => {
   console.log(`server is running from http://localhost:${PORT}`);
