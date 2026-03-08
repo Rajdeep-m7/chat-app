@@ -27,8 +27,18 @@ const Sidebar = () => {
           <Users className="size-6" />
           <span className="font-medium hidden lg:block">Contacts</span>
         </div>
-        {/* TODO: Online filter toggle */}
-        
+        <div className="mt-3 hidden lg:flex items-center gap-2">
+          <label className="cursor-pointer flex gap-2">
+            <input 
+              type="checkbox"
+              checked={showOnlineOnly}
+              onChange={(e)=> setShowOnlineOnly(e.target.checked)}
+              className="checbox checkbox-sm"
+            />
+            <span>Show online only</span>
+          </label>
+          <span>({onlineUsers.length - 1} online)</span>
+        </div>
       </div>
 
       <div className="overflow-y-auto w-full py-3">

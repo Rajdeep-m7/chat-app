@@ -56,6 +56,7 @@ export const useChat = create((set , get) => ({
         const socket = useAuth.getState().socket;
 
         socket.on("newMessage", (newMessage)=>{
+            if(newMessage.senderId != selectedUser._id) return ;
             set({ messages: [...get().messages, newMessage]})
         })
     },
