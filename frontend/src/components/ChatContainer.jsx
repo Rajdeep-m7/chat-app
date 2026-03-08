@@ -1,20 +1,39 @@
-import React, { useEffect } from 'react'
-import { useChat } from '../store/useChatStore'
-import ChatHeader from './ChatHeader';
-import MessageSkeleton from './skeletons/MessageSkeleton';
-import MessageInput from './MessageInput';
-import { formatMessageTime } from '../lib/utils';
-import { useAuth } from '../store/useAuthStore';
+import React, { useEffect } from "react";
+import { useChat } from "../store/useChatStore";
+import ChatHeader from "./ChatHeader";
+import MessageSkeleton from "./skeletons/MessageSkeleton";
+import MessageInput from "./MessageInput";
+import { formatMessageTime } from "../lib/utils";
+import { useAuth } from "../store/useAuthStore";
+import { useRef } from "react";
 
 function ChatContainer() {
-  const { messages , getMessages , isMessagesLoading , selectedUser}= useChat();
-  const {authUser}= useAuth()
+  const {
+    messages,
+    getMessages,
+    isMessagesLoading,
+    selectedUser,
+    subscribeToMessages,
+    unSubscribeFromMessages,
+  } = useChat();
+  const { authUser } = useAuth();
+  const messageRef = useRef();
 
-  useEffect(()=>{
-    getMessages(selectedUser._id)
-  },[selectedUser._id , getMessages])
+  useEffect(() => {
+    getMessages(selectedUser._id);
+    subscribeToMessages();
 
-  if(isMessagesLoading) return(
+    return () => unSubscribeFromMessages();
+  }, [selectedUser._id, getMessages]);
+
+  useEffect(() => {
+    if (messageRef.current && messages) {
+      messageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
+  if (isMessagesLoading)
+    return (
       <div className="flex-1 flex flex-col overflow-auto">
         <ChatHeader />
         <MessageSkeleton />
@@ -23,14 +42,14 @@ function ChatContainer() {
     );
 
   return (
-    <div className='flex-1 flex flex-col overflow-auto'>
-      <ChatHeader/>
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex-1 flex flex-col overflow-auto">
+      <ChatHeader />
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message) => (
           <div
             key={message._id}
             className={`chat ${message.senderId === authUser._id ? "chat-end" : "chat-start"}`}
-            
+            ref={messageRef}
           >
             <div className=" chat-image avatar">
               <div className="size-10 rounded-full border">
@@ -62,9 +81,9 @@ function ChatContainer() {
           </div>
         ))}
       </div>
-      <MessageInput/>
+      <MessageInput />
     </div>
-  )
+  );
 }
 
-export default ChatContainer
+export default ChatContainer;

@@ -13,9 +13,11 @@ import { useTheme } from "./store/useThemeStore";
 
 function App() {
 
-  const {authUser , checkAuth, isCheckingAuth}= useAuth();
+  const {authUser , checkAuth, isCheckingAuth, onlineUsers }= useAuth();
   const {theme}= useTheme()
 
+  console.log(onlineUsers);
+  
   useEffect(()=>{
     checkAuth();
   },[checkAuth])
@@ -24,7 +26,6 @@ function App() {
       document.documentElement.setAttribute("data-theme", theme);
     },[theme])
 
-  console.log(authUser);
 
   if (isCheckingAuth && !authUser)
     return (
