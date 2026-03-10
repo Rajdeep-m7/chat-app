@@ -1,109 +1,115 @@
-💬 Talksy – Real-Time Chat Application
-🚀 About the Project
+# 💬 Talksy – Real-Time Chat Application
 
-Talksy is a modern real-time chat application built using the MERN stack.
-It allows users to communicate instantly with a fast, responsive, and visually customizable chat interface.
+---
 
-The application uses Socket.io for real-time messaging, Zustand for efficient global state management, and DaisyUI to provide a modern UI with customizable themes.
+## 🚀 About the Project
 
-Users can send and receive messages instantly while switching between 32 different UI themes, making the chat experience both interactive and personalized.
+**Talksy** is a modern **real-time chat application** built using the **MERN stack**.  
+It allows users to communicate instantly with a **fast, responsive, and visually customizable chat interface**.
 
-🌐 Live Demo
+The application uses **Socket.io** for real-time messaging, **Zustand** for efficient global state management, and **DaisyUI** to provide a modern UI with customizable themes.
 
-🔗 Try the Application
+Users can send and receive messages instantly while switching between **32 different UI themes**, making the chat experience both **interactive and personalized**.
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Try the Application**
 
 https://talksy-vrku.onrender.com
 
-✨ Features
-💬 Real-Time Messaging
+---
 
-Instant messaging powered by Socket.io, allowing users to communicate in real time without refreshing the page.
+## ✨ Features
 
-🔐 Secure Authentication
+### 💬 Real-Time Messaging
+Instant messaging powered by **Socket.io**, allowing users to communicate in real time without refreshing the page.
 
-User Login and Signup system implemented using JWT authentication for secure access.
+### 🔐 Secure Authentication
+User **Login and Signup system** implemented using **JWT authentication** for secure access.
 
-🎨 32 UI Themes
+### 🎨 32 UI Themes
+Users can instantly switch between **32 beautiful color themes** using **DaisyUI** for a personalized UI experience.
 
-Users can instantly switch between 32 beautiful color themes using DaisyUI for a personalized UI experience.
+### 🟢 Online / Offline User Status
+Displays which users are **currently online or offline**, improving the real-time chat experience.
 
-🟢 Online / Offline User Status
+### ⚡ Fast State Management
+Global application state is efficiently managed using **Zustand**.
 
-Displays which users are currently online or offline, improving the real-time chat experience.
+### 📱 Fully Responsive Design
+The application is designed to work smoothly across **desktop, tablet, and mobile devices**.
 
-⚡ Fast State Management
+### 🛡 Protected API Routes
+Backend APIs are secured using **authentication middleware**, ensuring only authorized users can access protected resources.
 
-Global application state is efficiently managed using Zustand.
+---
 
-📱 Fully Responsive Design
+## 🛠 Tech Stack
 
-The application is designed to work smoothly across desktop, tablet, and mobile devices.
+### 🖥 Frontend
 
-🛡 Protected API Routes
+- ⚛️ React  
+- ⚡ Vite  
+- 🎨 Tailwind CSS  
+- 🌈 DaisyUI  
+- 🧠 Zustand  
+- 🔗 Axios  
 
-Backend APIs are secured using authentication middleware, ensuring only authorized users can access protected resources.
+### ⚙️ Backend
 
-🛠 Tech Stack
-🖥 Frontend
+- 🟢 Node.js  
+- 🚂 Express.js  
+- 🍃 MongoDB  
+- 🔌 Socket.io  
 
-⚛️ React
+---
 
-⚡ Vite
+## 🔐 Authentication & Security
 
-🎨 Tailwind CSS
+- 🪪 **JSON Web Token (JWT)** for secure authentication  
+- 🔑 **bcrypt** for password hashing  
+- 🛡 **Protected API routes** to secure backend endpoints  
 
-🌈 DaisyUI
+---
 
-🧠 Zustand
+## 🎨 UI Customization
 
-🔗 Axios
+Talksy integrates **DaisyUI themes**, allowing users to personalize the chat interface easily.
 
-⚙️ Backend
+Users can instantly switch between **32 different color themes**, making the application visually engaging and customizable according to their preferences.
 
-🟢 Node.js
+---
 
-🚂 Express.js
+## 🎯 Project Purpose
 
-🍃 MongoDB
+This project demonstrates **full-stack development using the MERN stack**, real-time communication using **Socket.io**, and efficient global state management using **Zustand**.
 
-🔌 Socket.io
+It showcases how modern technologies can be combined to build a **scalable, real-time, and responsive web application** with a clean and customizable UI.
 
-🔐 Authentication & Security
+---
 
-🪪 JSON Web Token (JWT) for secure authentication
-
-🔑 bcrypt for password hashing
-
-🛡 Protected API routes to secure backend endpoints
-
-🎨 UI Customization
-
-Talksy integrates DaisyUI themes, allowing users to personalize the chat interface easily.
-
-Users can instantly switch between 32 different color themes, making the application visually engaging and customizable according to their preferences.
-
-🎯 Project Purpose
-
-This project demonstrates full-stack development using the MERN stack, real-time communication using Socket.io, and efficient global state management using Zustand.
-
-It showcases how modern technologies can be combined to build a scalable, real-time, and responsive web application with a clean and customizable UI.
-
-⭐ Support
+## ⭐ Support
 
 If you like this project:
 
-⭐ Star the repository
-🍴 Fork the project
-🚀 Share it with others
+⭐ **Star the repository**  
+🍴 **Fork the project**  
+🚀 **Share it with others**
 
-👨‍💻 Author
+---
 
-Rajdeep Majumdar
+## 👨‍💻 Author
+
+**Rajdeep Majumdar**  
 Full Stack Developer (MERN Stack)
 
-GitHub:
+GitHub:  
 https://github.com/Rajdeep-m7
 
-📄 License
+---
+
+## 📄 License
 
 This project is licensed under the MIT License.
