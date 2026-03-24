@@ -60,7 +60,10 @@ export const useAuth = create((set , get)=>({
             get().connectSocket()
         } catch (error) {
             toast.error(error.message)
-        }  
+        }
+        finally{
+            set({ isLoggingIn : false})
+        }
     },
 
     updateProfile:async(data)=>{
